@@ -21,7 +21,7 @@ public class FilteringHoppersCommand implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) return false;
         if(args.length == 0) {
-            sender.sendMessage("§d[§5Filtering Hoppers§d] §cUsage: /" + label + " </info/reload/set-max-hopper>\n§c<> = Required.");
+            sender.sendMessage("§8[§7Воронка§8]&с Usage: /" + label + " </info/reload/set-max-hopper>\n§c<> = Required.");
             return false;
         }
 
@@ -32,20 +32,20 @@ public class FilteringHoppersCommand implements TabExecutor {
             }
             case "reload" -> {
                 if(!sender.hasPermission("filteringhoppers.reload")) {
-                    sender.sendMessage("§d[§5Filtering Hoppers§d] §cYou don't have the permission to do that!");
+                    sender.sendMessage("§8[§7Воронка§8]§f You don't have the permission to do that!");
                     return false;
                 }
                 Main.getInstance().reloadConfig();
-                sender.sendMessage("§d[§5Filtering Hoppers§d] Configuration reloaded!");
+                sender.sendMessage("§8[§7Воронка§8]&f Configuration reloaded!");
                 return true;
             }
             case "set-max-hopper" -> {
                 if(!sender.hasPermission("filteringhoppers.set-max-hopper")) {
-                    sender.sendMessage("§d[§5Filtering Hoppers§d] §cYou don't have the permission to do that!");
+                    sender.sendMessage("§8[§7Воронка§8]&с You don't have the permission to do that!");
                     return false;
                 }
                 if(!StringUtils.isNumeric(args[1])) {
-                    sender.sendMessage("§d[§5Filtering Hoppers§d] §cYou must provide a valid number!");
+                    sender.sendMessage("§8[§7Воронка§8]&с You must provide a valid number!");
                     return false;
                 }
                 Main.getInstance().getConfig().set("max-hopper-per-chunk", Integer.parseInt(args[1]));
@@ -53,7 +53,7 @@ public class FilteringHoppersCommand implements TabExecutor {
                 return true;
             }
             default -> {
-                sender.sendMessage("§d[§5Filtering Hoppers§d] §cUsage: /" + label + " </info/reload/set-max-hopper>\n§c<> = Required.");
+                sender.sendMessage("§8[§7Воронка§8]&с Usage: /" + label + " </info/reload/set-max-hopper>\n§c<> = Required.");
                 return false;
             }
         }
@@ -80,7 +80,7 @@ public class FilteringHoppersCommand implements TabExecutor {
         }else{
             info.add("§5You're using the latest version");
         }
-        info.add("§5Made with §c❤ §5by Cocolennon");
+        info.add("§5Made with §c❤ §5by mstudio");
         info.add("§d§l=========================");
 
         info.forEach(sender::sendMessage);
