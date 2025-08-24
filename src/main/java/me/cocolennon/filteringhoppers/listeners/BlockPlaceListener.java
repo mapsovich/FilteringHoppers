@@ -36,7 +36,7 @@ public class BlockPlaceListener implements Listener {
 
         int maxHopper = (int) Main.getInstance().getConfig().get("max-hopper-per-chunk");
         if(hopperCount > maxHopper) {
-            player.sendMessage("§d[§5Filtering Hoppers§d] §cYou can only have a maximum of " + Main.getInstance().getConfig().get("max-hopper-per-chunk") + " hoppers per chunk!");
+            player.sendMessage("§8[§7Воронка§8]&f Вы можете иметь максимум " + Main.getInstance().getConfig().get("max-hopper-per-chunk") + " воронок в этом чанке!");
             event.setCancelled(true);
         }
     }
