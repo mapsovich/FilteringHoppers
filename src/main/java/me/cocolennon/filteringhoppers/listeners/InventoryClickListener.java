@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class InventoryClickListener implements Listener {
     @EventHandler
     public void inventoryClick(InventoryClickEvent event) {
-        if(!event.getView().getTitle().equals("§5Filtering Hoppers§f: §dFilter Menu")) return;
+        if(!event.getView().getTitle().equals("§8Фильтр воронки")) return;
         Player player = (Player) event.getWhoClicked();
         ItemStack current = event.getCurrentItem();
         Inventory inv = event.getInventory();
@@ -33,13 +33,13 @@ public class InventoryClickListener implements Listener {
                 return;
             }
             if(slot == 2001) {
-                player.sendMessage("§d[§5Filtering Hoppers§d] §cThe filter is full!");
+                player.sendMessage("§8[§7Воронка§8]&c Фильтр в воронке заполнен!");
                 return;
             }
             ItemStack newItem = current.clone();
             newItem.setAmount(1);
             if(Arrays.stream(inv.getContents()).toList().contains(newItem)) {
-                player.sendMessage("§d[§5Filtering Hoppers§d] §cThis item is already in the filter!");
+                player.sendMessage("§8[§7Воронка§8]&f Этот предмет уже есть в фильтре!");
                 return;
             }
             inv.setItem(slot, newItem);
