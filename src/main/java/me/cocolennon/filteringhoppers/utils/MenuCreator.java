@@ -20,7 +20,7 @@ public class MenuCreator {
 
     public void createFilterMenu(List<ItemStack> filter, Player player, Block block) {
         Hopper hopper = (Hopper) block.getState();
-        Inventory inv = Bukkit.createInventory(hopper, 27, "§5Filtering Hoppers§f: §dFilter Menu");
+        Inventory inv = Bukkit.createInventory(hopper, 27, "§8Фильтр воронки");
 
         if(filter != null) {
             for (ItemStack itemStack : filter) {
@@ -31,7 +31,7 @@ public class MenuCreator {
         fillEmpty(inv, getItem());
 
         player.openInventory(inv);
-        player.sendMessage("§d[§5Filtering Hoppers§d] Successfully opened the filter menu.");
+        player.sendMessage("§8[§7Воронка§8]&f Вы открыли фильтр воронки");
     }
 
     private void fillEmpty(Inventory inv, ItemStack item){
