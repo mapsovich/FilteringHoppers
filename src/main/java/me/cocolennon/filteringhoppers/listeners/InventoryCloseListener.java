@@ -24,7 +24,7 @@ public class InventoryCloseListener implements Listener {
     public void inventoryClose(InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
         Inventory inventory = event.getInventory();
-        if(!event.getView().getTitle().equals("§5Filtering Hoppers§f: §dFilter Menu")) return;
+        if(!event.getView().getTitle().equals("§8Фильтр воронки")) return;
         PersistentDataContainer pdc = player.getPersistentDataContainer();
         NamespacedKey currentInvLoc = new NamespacedKey(Main.getInstance(), "currentInvLoc");
         Location currentLoc = pdc.get(currentInvLoc, DataType.LOCATION);
@@ -45,6 +45,6 @@ public class InventoryCloseListener implements Listener {
         ItemStack[] arrayFilter = filter.toArray(new ItemStack[0]);
         container.set(key, DataType.ITEM_STACK_ARRAY, arrayFilter);
         tileState.update();
-        player.sendMessage("§d[§5Filtering Hoppers§d] Successfully closed and saved the filter menu.");
+        player.sendMessage("§8[§7Воронка§8]&f Фильтр предметов сохранён");
     }
 }
